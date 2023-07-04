@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Dictionary</title>
-
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
 
-    <div th:each="translation : ${translations}">
-        <p th:text="${translation.getOriginText() + ' - ' +
-        translation.getTranslatedText()}"></p>
-    </div>
-    <a href="http://localhost:8080/dictionary">back</a>
+    <form method="POST" class="translation-container">
+        <div>
+            <input type="submit">
+        </div>
+        <div th:each="translation : ${translations}" class="translation-context">
+            <input type="checkbox" th:id="${translation.getId()}">
+            <span th:text="${translation.getOriginText() + ' - ' + translation.getTranslatedText()}"></span>
+            <button>Delete</button>
+            <button>Edit</button>
+        </div>
+    </form>
+    <a href="/dictionary">back</a>
 
 </body>
 </html>
