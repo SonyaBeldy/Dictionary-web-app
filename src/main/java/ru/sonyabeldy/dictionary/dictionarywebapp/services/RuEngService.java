@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import ru.sonyabeldy.dictionary.dictionarywebapp.models.RuEngTranslation;
 import ru.sonyabeldy.dictionary.dictionarywebapp.repositories.RuEngRepository;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class RuEngService {
@@ -15,7 +15,21 @@ public class RuEngService {
         this.repository = repository;
     }
 
+    public boolean isFound(int id) {
+        return repository.existsById(id);
+    }
+
     public List<RuEngTranslation> findAll() {
         return repository.findAll();
+    }
+
+    public List<RuEngTranslation> shuffle(List<RuEngTranslation> translations) { //translations origin snd translation shuffle
+
+        Collections.shuffle(translations);
+        return translations;
+    }
+
+    public Optional<RuEngTranslation> findById(int id) {
+        return repository.findById(id);
     }
 }

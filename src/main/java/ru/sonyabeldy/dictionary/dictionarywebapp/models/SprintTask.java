@@ -1,24 +1,19 @@
 package ru.sonyabeldy.dictionary.dictionarywebapp.models;
 
-import jakarta.persistence.*;
+public class SprintTask {
 
-@Entity
-@Table(name = "ru_eng_translation")
-public class RuEngTranslation {
+    private String originText;
+    private String translatedText;
+    private boolean isRight;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
-    @Column(name = "origin_text")
-    private String originText;
-
-    @Column(name = "translated_text")
-    private String translatedText;
-
-    @Column(name = "context")
-    private String context;
+    public SprintTask(int id, String originText, String translatedText, boolean isRight) {
+        this.originText = originText;
+        this.translatedText = translatedText;
+        this.isRight = isRight;
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -44,21 +39,21 @@ public class RuEngTranslation {
         this.translatedText = translatedText;
     }
 
-    public String getContext() {
-        return context;
+    public boolean isRight() {
+        return isRight;
     }
 
-    public void setContext(String context) {
-        this.context = context;
+    public void setRight(boolean right) {
+        isRight = right;
     }
 
     @Override
     public String toString() {
-        return "RuEngTranslation{" +
-                "id=" + id +
-                ", originText='" + originText + '\'' +
+        return "SprintTask{" +
+                "originText='" + originText + '\'' +
                 ", translatedText='" + translatedText + '\'' +
-                ", context='" + context + '\'' +
+                ", isRight=" + isRight +
+                ", id=" + id +
                 '}';
     }
 }

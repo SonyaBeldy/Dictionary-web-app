@@ -7,12 +7,12 @@
 </head>
 <body>
 
-    <form method="POST" class="translation-container">
+    <form method="POST" action="/dictionary/test" class="translation-container">
         <div>
-            <input type="submit">
+            <input type="submit" value="train">
         </div>
         <div th:each="translation : ${translations}" class="translation-context">
-            <input type="checkbox" th:id="${translation.getId()}">
+            <input type="checkbox" name="test" th:value="${translation.getId()}" >
             <span th:text="${translation.getOriginText() + ' - ' + translation.getTranslatedText()}"></span>
             <button>Delete</button>
             <button>Edit</button>

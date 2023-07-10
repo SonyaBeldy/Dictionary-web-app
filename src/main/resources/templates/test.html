@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+    <script defer src="/js/script.js"></script>
+    <link rel="stylesheet" th:href="@{/css/sprint.css}"/>
+</head>
+<body>
+
+    <div th:each="unit : ${sprintUnits}" id="testContext">
+        <div th:id="'div' + ${unit.getId()}" class="unit">
+            <p th:text="${unit.getOriginText()}"></p>
+            <p th:text="${unit.getTranslatedText()}"></p>
+
+            <div>
+                <button id="wrong-btn" th:onclick="wrongCheck([[${unit.isRight()}]])">Wrong</button>
+                <button id="right-btn" th:onclick="rightCheck([[${unit.isRight()}]])">Right</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
