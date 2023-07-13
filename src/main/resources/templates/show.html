@@ -6,18 +6,37 @@
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
 </head>
 <body>
+    <header class="header">
+<!--    <div>Dictionary</div>-->
+    </header>
 
-    <form method="POST" action="/dictionary/test" class="translation-container">
-        <div>
-            <input type="submit" value="train">
+    <main class="main">
+        <div class="page-content">
+            <form method="POST" action="/dictionary/test" class="units-container">
+                <div class="form-header">
+                    <h3 class="dictionary-title">My dictionary</h3>
+                    <div>
+                        <input type="submit" value="train" class="train-btn">
+                        <input type="submit" value="delete" class="train-btn">
+                    </div>
+                </div>
+                <div th:each="translation : ${translations}" class="unit-context">
+                    
+                    <div class="unit-left-toolbar">
+                        <input type="checkbox" name="test" th:value="${translation.getId()}" >
+                        <span th:text="${translation.getOriginText()}" class="original-text"></span>
+                        <span th:text="' - ' + ${translation.getTranslatedText()}" class="translation-text"></span>
+                    </div>
+        
+                    <div class="unit-right-toolbar">
+                        <button>Delete</button>
+                        <button>Edit</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div th:each="translation : ${translations}" class="translation-context">
-            <input type="checkbox" name="test" th:value="${translation.getId()}" >
-            <span th:text="${translation.getOriginText() + ' - ' + translation.getTranslatedText()}"></span>
-            <button>Delete</button>
-            <button>Edit</button>
-        </div>
-    </form>
+    </main>
+
     <a href="/dictionary">back</a>
 
 </body>

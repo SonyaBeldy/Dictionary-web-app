@@ -2,18 +2,90 @@ body {
     padding: 0;
     margin: 0;
 }
-.translation-context {
-    background-color: #CDFEAA;
-    width:100%;
-    padding-left: 10px;
-    width: 300px;
+
+.header {
+    background-color: #f1edee;
+    margin: 0;
+    height: 40px;
 }
 
-.translation-container {
-    padding: 10px;
+.main {
     display: flex;
-    gap: 10px;
+    justify-content: center;
+    background-color: #9192ce;
+    min-height: calc(100vh - 40px);
+}
+
+.page-content {
+    background-color: rgb(239, 239, 243);
+}
+
+.unit-context {
+    background-color: #ffffff;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    border-radius: 4px;
+    border-width: 2px;
+    border-color: rgb(12, 12, 12);
+    padding: 0 10px 0 10px;
+}
+
+.unit-left-toolbar {
+
+}
+
+.dictionary-title {
+    align-self: left;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.train-btn {
+    align-self: right;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.units-container {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    gap: 6px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 600px;
+
 }
+
+.original-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: medium;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2rem;
+    color: #6f9283;
+  }
+
+.translation-text {
+    font-family: 'Lato', sans-serif;
+}
+
+0d1f2d,6f9283,c2f261,f1edee,76818e
+
+    margin-left: 2rem;
+    margin-top: 0.7rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(0rem);
