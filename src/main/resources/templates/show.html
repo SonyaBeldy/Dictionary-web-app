@@ -8,29 +8,46 @@
 <body>
     <header class="header">
 <!--    <div>Dictionary</div>-->
+<div>
+            <!-- <span class="username">Sonya</span> -->
+            
+        </div>
     </header>
 
     <main class="main">
         <div class="page-content">
-            <form method="POST" action="/dictionary/test" class="units-container">
+            <form method="POST" action="/dictionary/test" class="main-container">
+                
                 <div class="form-header">
-                    <h3 class="dictionary-title">My dictionary</h3>
+                    <h3 class="dictionary-title">MY DICTIONARY</h3>
+                    <h3 class="separator">/</h3>
                     <div>
-                        <input type="submit" value="train" class="train-btn">
-                        <input type="submit" value="delete" class="train-btn">
+                        <input type="submit" value="train" name="train" class="train-btn">
                     </div>
                 </div>
-                <div th:each="translation : ${translations}" class="unit-context">
-                    
-                    <div class="unit-left-toolbar">
-                        <input type="checkbox" name="test" th:value="${translation.getId()}" >
-                        <span th:text="${translation.getOriginText()}" class="original-text"></span>
-                        <span th:text="' - ' + ${translation.getTranslatedText()}" class="translation-text"></span>
-                    </div>
-        
-                    <div class="unit-right-toolbar">
-                        <button>Delete</button>
-                        <button>Edit</button>
+
+                <div class="form-tools-header-2">
+                    <button class="select-all-btn">Select all</button>
+                    <button type="submit" value="delete" name="delete" class="delete-btn">
+                        <img class="delete-btn-img" src="../images/delete2-24.png"/>
+                    </button>
+                    <!-- <button type="submit" value="delete" class="delete-btn"> -->
+                </div>
+
+                <div class="units-list-container">
+                    <div th:each="translation : ${translations}" class="unit-context">
+                        
+                        <div class="unit-left-toolbar">
+                            <input id="checkbox" type="checkbox" class="unit-checkbox" name="test" th:value="${translation.getId()}" >
+                            <!-- <label for="checkbox"> hello </label> -->
+                            <span th:text="${translation.getOriginText()}" class="original-text"></span>
+                            <span th:text="' - ' + ${translation.getTranslatedText()}" class="translation-text"></span>
+                        </div>
+            
+                        <div class="unit-right-toolbar">
+                            <button>Delete</button>
+                            <button>Edit</button>
+                        </div>
                     </div>
                 </div>
             </form>

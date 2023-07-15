@@ -34,16 +34,32 @@ public class RuEngTranslationsController {
     }
 
 
-    @PostMapping("/test")
-    public String get(@RequestParam(value="test", required = false) int[] test, RedirectAttributes redirectedAttributes) {
-        if(test != null) {
-            redirectedAttributes.addAttribute("test", test);
-            return "redirect:test";
-        }
-//        System.out.println(Arrays.toString(test));
+//    @PostMapping("/test")
+//    public String get(@RequestParam(value="test", required = false) int[] test, RedirectAttributes redirectAttributes) {
+//        if(test != null) {
+//            redirectAttributes.addAttribute("test", test);
+//            return "redirect:test";
+//        }
+////        System.out.println(Arrays.toString(test));
+//
+//        return "redirect:show";
+//    }
 
+    @RequestMapping(value = "/test", method = RequestMethod.POST, params = "delete")
+    public String delete(@RequestParam(value = "test", required = false) int[] test, RedirectAttributes redirectAttributes) {
+        System.out.println("POST DELETE");
         return "redirect:show";
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST, params = "train")
+    public String test(@RequestParam(value = "test", required = false) int[] test, RedirectAttributes redirectAttributes) {
+        if(test != null) {
+            redirectAttributes.addAttribute("test", test);
+            return "redirect:test";
+        }
+        return "redirect:show";
+    }
+
 
     @GetMapping("/test")
     public String sprintTestShow(@RequestParam int[] test, Model model) {
