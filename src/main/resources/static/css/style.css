@@ -49,6 +49,12 @@ body {
     box-sizing: border-box;
 }
 
+.group {
+    width: 60px;
+    height: 30px;
+    background-color: #6E7BF2;
+    border-radius: 15px;
+}
 .username {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -67,6 +73,14 @@ body {
     margin: 10px;
     width: 640px;
     box-sizing: border-box;
+}
+
+.btns {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+    padding: 0 10px;
 }
 
 .unit-context {
@@ -140,7 +154,7 @@ body {
 }
 
 .main-container {
-    padding: 20px;
+    /* padding: 20px; */
     display: flex;
     gap: 12px;
     align-items: center;
@@ -177,6 +191,8 @@ body {
     gap: 10px;
     padding: 0 2px;
     justify-content: space-between;
+
+    display: none;
 }
 
 .select-all-btn {
