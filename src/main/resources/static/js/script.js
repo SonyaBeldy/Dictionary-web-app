@@ -1,11 +1,7 @@
-
-
 let wrong_btn = document.getElementById("wrong-btn")
                         .addEventListener("click", (ev) => {
                             console.log("click");
-
 }) 
-
 
 function say(text) {
     alert(text);
@@ -20,8 +16,6 @@ while(document.getElementById('div' + i.toString()) != null) {
     let btn = document.getElementById('div' + i.toString()).style.display = 'none';
     i++;
 }
-
-
 
 function wrongCheck(isRight) {
     if (isRight) {
@@ -51,7 +45,7 @@ function rightCheck(isRight) {
     }
 }
 
-
-
 const styled = (display) =>
   `display: ${display};`
+
+

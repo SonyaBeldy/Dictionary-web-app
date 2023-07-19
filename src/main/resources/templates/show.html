@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <title>Dictionary</title>
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script defer src="/js/dictionary.js"></script>
 </head>
 <body>
+    
     <header class="header">
-<!--    <div>Dictionary</div>-->
-<div>
+    <!--    <div>Dictionary</div>-->
+        <div class="header-content">
             <!-- <span class="username">Sonya</span> -->
-            
+            <h3 class="dictionary-title">MY DICTIONARY</h3>
+                    <!-- <h3 class="separator">/</h3> -->
+                    <div>
+                        <button value="user" name="logout" class="user-btn"></button>
+                    </div>
         </div>
     </header>
-
     <main class="main">
         <div class="page-content">
             <form method="POST" action="/dictionary/test" class="main-container">
                 
                 <div class="form-header">
-                    <h3 class="dictionary-title">MY DICTIONARY</h3>
-                    <h3 class="separator">/</h3>
+                    <!-- <h3 class="dictionary-title">MY DICTIONARY</h3> -->
+                    <!-- <h3 class="separator">/</h3> -->
                     <div>
                         <input type="submit" value="train" name="train" class="train-btn">
                     </div>
@@ -34,7 +39,13 @@
                     <!-- <button type="submit" value="delete" class="delete-btn"> -->
                 </div>
 
+                <div class="form-header">
+                    <input id="checkbox-select-all" type="checkbox" class="select-all-checkbox" name="select-all-btn">
+                </div>
+
                 <div class="units-list-container">
+    
+
                     <div th:each="translation : ${translations}" class="unit-context">
                         
                         <div class="unit-left-toolbar">
