@@ -49,12 +49,34 @@ body {
     box-sizing: border-box;
 }
 
+.groups {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    width: 640px;
+}
+
 .group {
     width: 60px;
     height: 30px;
     background-color: #6E7BF2;
-    border-radius: 15px;
+    border-radius: 4px;
+    border-radius: 4px 4px 0px 0px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.group-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500; 
+    font-size: small;  
+    color: #ffffff; 
+}
+
 .username {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -62,15 +84,18 @@ body {
 
 .main {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     background-color: #9192ce;
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
+
 }
 
 .page-content {
     background-color: rgb(239, 239, 243);
-    margin: 10px;
+    /* margin: 10px; */
     width: 640px;
     box-sizing: border-box;
 }
