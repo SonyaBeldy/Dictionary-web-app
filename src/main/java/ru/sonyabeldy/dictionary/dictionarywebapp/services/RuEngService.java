@@ -32,4 +32,10 @@ public class RuEngService {
     public Optional<RuEngTranslation> findById(int id) {
         return repository.findById(id);
     }
+
+    public void remove(int[] id) {
+        for (int i : id) {
+            repository.deleteById(i);
+        }
+    }
 }

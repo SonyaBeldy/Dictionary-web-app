@@ -51,6 +51,7 @@ body {
 
 .groups {
     display: flex;
+    display: none;
     justify-content: left;
     align-items: center;
     gap: 8px;
@@ -59,8 +60,9 @@ body {
 }
 
 .group {
-    width: 60px;
+    /* width: 60px; */
     height: 30px;
+    padding: 0 10px;
     background-color: #6E7BF2;
     border-radius: 4px;
     border-radius: 4px 4px 0px 0px;
@@ -95,7 +97,7 @@ body {
 
 .page-content {
     background-color: rgb(239, 239, 243);
-    /* margin: 10px; */
+    margin: 10px;
     width: 640px;
     box-sizing: border-box;
 }

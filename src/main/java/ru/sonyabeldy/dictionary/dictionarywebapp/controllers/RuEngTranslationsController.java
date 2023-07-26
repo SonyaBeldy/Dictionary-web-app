@@ -48,6 +48,7 @@ public class RuEngTranslationsController {
     @RequestMapping(value = "/test", method = RequestMethod.POST, params = "delete")
     public String delete(@RequestParam(value = "test", required = false) int[] test, RedirectAttributes redirectAttributes) {
         System.out.println("POST DELETE");
+        ruEngService.remove(test);
         return "redirect:show";
     }
 
