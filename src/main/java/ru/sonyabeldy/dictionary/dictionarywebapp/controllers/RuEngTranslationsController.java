@@ -21,14 +21,7 @@ public class RuEngTranslationsController {
     }
 
     @GetMapping()
-    public String index() {
-        return "index";
-    }
-
-    @GetMapping("/show")
-    public String show(Model model) {
-
-        System.out.println("show");
+    public String index(Model model) {
         model.addAttribute("translations", ruEngService.findAll());
         return "show";
     }
@@ -61,11 +54,15 @@ public class RuEngTranslationsController {
         return "redirect:show";
     }
 
+    @RequestMapping(value = "/test", method = RequestMethod.POST, params = "add")
+    public String add(RedirectAttributes redirectAttributes) {
+        System.out.println("ADD");
+        return "redirect:show";
+    }
+
 
     @GetMapping("/test")
     public String sprintTestShow(@RequestParam int[] test, Model model) {
-//        System.out.println(Arrays.toString(test));
-
         model.addAttribute("sprintUnits", generateSprintList(test, ruEngService.findAll()));
         return "test";
     }
