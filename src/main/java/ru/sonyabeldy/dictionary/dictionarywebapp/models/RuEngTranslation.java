@@ -20,6 +20,10 @@ public class RuEngTranslation {
     @Column(name = "context")
     private String context;
 
+    @ManyToOne
+    @JoinColumn(name = "person_id", referencedColumnName = "id")
+    private Person owner;
+
     public int getId() {
         return id;
     }
@@ -50,6 +54,14 @@ public class RuEngTranslation {
 
     public void setContext(String context) {
         this.context = context;
+    }
+
+    public Person getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Person owner) {
+        this.owner = owner;
     }
 
     @Override

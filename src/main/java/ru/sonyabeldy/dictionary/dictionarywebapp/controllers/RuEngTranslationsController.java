@@ -1,5 +1,7 @@
 package ru.sonyabeldy.dictionary.dictionarywebapp.controllers;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -7,6 +9,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.sonyabeldy.dictionary.dictionarywebapp.models.RuEngTranslation;
 import ru.sonyabeldy.dictionary.dictionarywebapp.models.SprintTask;
 import ru.sonyabeldy.dictionary.dictionarywebapp.services.RuEngService;
+import security.PersonDetails;
 
 import java.util.*;
 
@@ -22,7 +25,10 @@ public class RuEngTranslationsController {
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("translations", ruEngService.findAll());
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
+//        model.addAttribute("translations", ruEngService.findAll());
+        model.addAttribute("translations", ruEngService.findAllByOwner(personDetails.getPerson()));
         return "show";
     }
 

@@ -1,6 +1,7 @@
 package ru.sonyabeldy.dictionary.dictionarywebapp.services;
 
 import org.springframework.stereotype.Service;
+import ru.sonyabeldy.dictionary.dictionarywebapp.models.Person;
 import ru.sonyabeldy.dictionary.dictionarywebapp.models.RuEngTranslation;
 import ru.sonyabeldy.dictionary.dictionarywebapp.repositories.RuEngRepository;
 
@@ -21,6 +22,10 @@ public class RuEngService {
 
     public List<RuEngTranslation> findAll() {
         return repository.findAll();
+    }
+
+    public List<RuEngTranslation> findAllByOwner(Person owner) {
+        return repository.findAllByOwner(owner);
     }
 
     public List<RuEngTranslation> shuffle(List<RuEngTranslation> translations) { //translations origin snd translation shuffle

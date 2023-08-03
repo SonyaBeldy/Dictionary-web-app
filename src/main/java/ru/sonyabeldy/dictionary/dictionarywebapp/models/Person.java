@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "Person")
 public class Person {
@@ -23,6 +25,9 @@ public class Person {
     @Email
     @Column(name = "email")
     private String email;
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.EAGER)
+    private List<RuEngTranslation> translations;
 
     public Person() {
     }
@@ -57,6 +62,14 @@ public class Person {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<RuEngTranslation> getTranslations() {
+        return translations;
+    }
+
+    public void setTranslations(List<RuEngTranslation> translations) {
+        this.translations = translations;
     }
 
     @Override
