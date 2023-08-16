@@ -1,5 +1,5 @@
 spring.datasource.driver-class-name=org.postgresql.Driver
-spring.datasourse.url=
+spring.datasource.url=
 spring.datasource.username=
 spring.datasource.password=
 
